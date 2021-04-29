@@ -1,0 +1,28 @@
+providers:
+  docker:
+    exposedByDefault: false
+    network: proxy
+
+api:
+  insecure: false # Set to true if you want to access the dashboard on :8080
+
+entryPoints:
+  web:
+    address: ":80"
+
+  websecure:
+    address: ":443"
+
+  traefik:
+    address: ":8080"
+
+certificatesResolvers:
+  main:
+    acme:
+      email: certs@ethercreative.co.uk
+      storage: acme.json
+      httpChallenge:
+        entryPoint: web
+      dnsChallenge:
+        provider: digitalocean
+        delayBeforeCheck: 0
