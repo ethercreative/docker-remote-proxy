@@ -13,6 +13,7 @@ cd $PROXY_PATH || { echo "Failed to move into proxy directory"; exit 1; }
 # Create .env file
 touch .env
 echo "DO_AUTH_TOKEN=" >> .env
+echo "COMPOSE_PROJECT_NAME=proxy" >> .env
 
 # Create acme.json
 touch acme.json
