@@ -18,6 +18,8 @@ COMPOSE_PROJECT_NAME=my-project
 VIRTUAL_HOST=my-domain.com
 ```
 
+**NOTE:** Your `COMPOSE_PROJECT_NAME` should be different to the server name
+
 ## Single Domain
 
 In your `docker-compose.yml` file, add the following network & labels to your `web` container:
@@ -41,6 +43,13 @@ networks:
 ## Wildcard Domain
 
 **Generate a DigitalOcean access token and add it to the `.env` file in the `proxy` directory.**
+
+Uncomment the following in the `traefik.yml` file:
+```yml
+#      dnsChallenge:
+#        provider: digitalocean
+#        delayBeforeCheck: 0
+```
 
 Set your `VIRTUAL_HOST` environment variable to the wildcard domain, i.e. `VIRTUAL_HOST=*.my-domain.com` 
 
