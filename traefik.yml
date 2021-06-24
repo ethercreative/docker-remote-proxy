@@ -28,6 +28,6 @@ certificatesResolvers:
       storage: acme.json
       httpChallenge:
         entryPoint: web
-      dnsChallenge:
-        provider: digitalocean
-        delayBeforeCheck: 0
+#      dnsChallenge:
+#        provider: digitalocean
+#        delayBeforeCheck: 0
