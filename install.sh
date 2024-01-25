@@ -22,8 +22,12 @@ chmod 600 acme.json
 # Copy docker-compose
 curl https://raw.githubusercontent.com/ethercreative/docker-remote-proxy/main/docker-compose.yml >> docker-compose.yml
 
-# Copy Treafik config
+# Copy Treafik configs
 curl https://raw.githubusercontent.com/ethercreative/docker-remote-proxy/main/traefik.yml >> traefik.yml
+curl https://raw.githubusercontent.com/ethercreative/docker-remote-proxy/main/dynamic.yml >> dynamic.yml
+
+# Create logs folder
+mkdir logs
 
 # Create the proxy network (if not exists)
 docker network ls|grep proxy > /dev/null || docker network create --driver bridge proxy

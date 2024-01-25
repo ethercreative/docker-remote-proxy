@@ -17,6 +17,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./traefik.yml:/etc/traefik/traefik.yml:delegated
       - ./acme.json:/acme.json:delegated
+      - ./logs:/logs:delegated
+      - ./dynamic.yml:/dynamic.yml:ro
 
 networks:
   proxy:
