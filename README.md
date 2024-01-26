@@ -72,6 +72,22 @@ networks:
     external: true
 ```
 
+## WWW support
+
+In your `docker-compose.yml` file, add/modify the following labels to/in your `web` container:
+
+```yaml
+services:
+  web:
+    labels:
+      # - ... other labels excluded for brevity ...
+      - traefik.http.routers.$COMPOSE_PROJECT_NAME.rule=Host(`www.$VIRTUAL_HOST`) || Host(`$VIRTUAL_HOST`)
+      - traefik.http.routers.$COMPOSE_PROJECT_NAME.middlewares=redirect-www-to-non-www@file,redirect-web-to-websecure@internal
+```
+This will redirect www to non-www.
+
+Replace `redirect-www-to-non-www` with `redirect-non-www-to-www` to redirect from non-www to www.
+
 ## Development
 
 If you want to enable the Traefik dashboard while developing, you can do so by 
