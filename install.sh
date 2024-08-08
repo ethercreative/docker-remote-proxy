@@ -33,7 +33,7 @@ mkdir logs
 docker network ls|grep proxy > /dev/null || docker network create --driver bridge proxy
 
 # Start the proxy
-docker-compose up -d
+docker compose up -d
 
 # Return to initial directory
 cd "$PWD" || exit
